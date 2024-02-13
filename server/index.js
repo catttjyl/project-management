@@ -8,7 +8,6 @@ const mongoose = require('mongoose');
 const port = process.env.PORT || 3001;
 
 const app = express();
-require("dotenv").config();
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -28,7 +27,7 @@ app.use(
   '/graphql',
   graphqlHTTP({
     schema,
-    graphiql: process.env.NODE_ENV === 'development',
+    graphiql: process.env.NODE_ENV === 'production',
   })
 );
 
