@@ -25,7 +25,7 @@ const cache = new InMemoryCache({
 });
 
 const client = new ApolloClient({
-  uri: 'http://localhost:3001/graphql',
+  uri: 'https://cat-chat-app-6200e8e38a91.herokuapp.com/graphql',
   cache,
 });
 
