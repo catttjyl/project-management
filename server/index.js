@@ -20,14 +20,21 @@ mongoose.connect(process.env.MONGO_URI, {
   console.log(`Error: ${err.message}`.red.bold);
 });
 
+const corsOptions = {
+  origin: [
+    'http://localhost:3000', // Assuming you're developing against localhost:3000
+    'https://pmanagement.netlify.app/' // Replace with your actual Netlify URL
+  ],
+  credentials: true // If your client needs to send cookies or authorization headers
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 app.use(
   '/graphql',
   graphqlHTTP({
     schema,
-    graphiql: process.env.NODE_ENV === 'production',
+    graphiql: process.env.NODE_ENV === 'development',
   })
 );
 
