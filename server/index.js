@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGO_URI, {
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://main--pmanagement.netlify.app'
+    'https://pmanagement.netlify.app'
   ],
   credentials: true
 };
