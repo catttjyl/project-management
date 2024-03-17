@@ -6,24 +6,23 @@ const { graphqlHTTP } = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 3001;
+import mysql from "mysql"
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
+export const db = mysql.createConnection({
+  host:"localhost",
+  user:"root",
+  password: process.env.DB_KEY,
+  database:"mgmt"
 })
-.then(() => {
-  console.log("DB Connetion Successfull".cyan.underline);
-})
-.catch((err) => {
-  console.log(`Error: ${err.message}`.red.bold);
-});
+
 
 const corsOptions = {
   origin: [
     'http://localhost:3000',
-    'https://pmanagement.netlify.app'
+    'https://pmanagement.netlify.app',
+    'https://pgmgmtcat.netlify.app'
   ],
   credentials: true
 };

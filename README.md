@@ -4,4 +4,4 @@
 
 Link to the website:
 
-- [Management](https://pmanagement.netlify.app/)
+- [Management](https://pgmgmtcat.netlify.app/)
